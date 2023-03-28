@@ -4,8 +4,8 @@ services:
     nginx:
         image: yansongda/docker-nginx
         volumes:
-            - ./sites:/etc/nginx/conf.d
-            - ./www:/www
+            - D:\workspace\sites:/etc/nginx/conf.d
+            - D:\workspace\www:/www
         networks:
             - lnmp
         depends_on:
@@ -17,7 +17,7 @@ services:
     php:
         image: yansongda/docker-php7-fpm
         volumes:
-            - ./www:/www
+            - D:\workspace\www:/www
         networks:
             - lnmp
         depends_on:
@@ -32,7 +32,7 @@ services:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: yansongda
         volumes:
-            - ./data/mariadb:/var/lib/mysql
+            - D:\workspace\data\mariadb:/var/lib/mysql
         networks:
             - lnmp
         expose:
@@ -42,7 +42,7 @@ services:
     redis:
         image: redis
         volumes:
-            - ./data/redis:/data
+            - D:\workspace\data\redis:/data
         networks:
             - lnmp
         expose:
@@ -56,7 +56,7 @@ services:
     tools:
         image: yansongda/tools
         volumes:
-            - ./www:/www
+            - D:\workspace\www:/www
         networks:
             - lnmp
 
